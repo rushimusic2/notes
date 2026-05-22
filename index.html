@@ -1,206 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DocVault — Your Private Document Safe</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-
-  <!-- Supabase Library -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-  <!-- Our CSS File -->
-  <link rel="stylesheet" href="css/style.css" />
+    <title>My Documents</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Background Glow Orbs (decoration) -->
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
+    <h1>My Files</h1>
 
-  <!-- ================================
-       AUTH SCREEN (Login / Signup)
-  ================================= -->
-  <div id="auth-screen">
-    <div class="auth-card">
+    <!-- PDF -->
 
-      <!-- Logo -->
-      <div class="logo-mark">
-        <div class="logo-icon">🔐</div>
-        <span class="logo-text">DocVault</span>
-      </div>
+    <a href="https://drive.google.com/file/d/1qRYAYC9U4ne-2NAVbAJjP9dl8NQNY3PE/view?usp=drive_link" target="_blank">
+        Physical Properties of Minerals
+    </a>
 
-      <div class="auth-title">Welcome Back</div>
-      <div class="auth-sub">Your personal private document safe.</div>
+    <br><br>
 
-      <!-- Login / Signup Tabs -->
-      <div class="tab-row">
-        <button class="tab-btn active" onclick="switchTab('login')">Login</button>
-        <button class="tab-btn" onclick="switchTab('signup')">Sign Up</button>
-      </div>
+    <!-- PPT -->
 
-      <!-- Email Field -->
-      <div class="field-group">
-        <label class="field-label">Email</label>
-        <input id="auth-email" class="field-input" type="email" placeholder="you@example.com" />
-      </div>
+    <a href="https://docs.google.com/presentation/d/15HSIuGV1ZVe17mcjHC_ClTS9hZRdP6nV/edit?usp=drive_link&ouid=113372474605013599692&rtpof=true&sd=true">
+        Age of the Earth
+    </a>
+    <br>
+    <hr> <a href="https://docs.google.com/presentation/d/1hw0W_5hoz8XK5F-FZQoc1oYE3BbRkN-G/edit?usp=drive_link&ouid=113372474605013599692&rtpof=true&sd=true">
+        Branches of Geology
+    </a>
+    <br>
+    <hr> <a href="https://docs.google.com/presentation/d/1lOe7wV67nLA6a7mPlCM2znuaCG7XekDt/edit?usp=drive_link&ouid=113372474605013599692&rtpof=true&sd=true">
+        Earth
+    </a>
+    <br>
+    <hr> <a href="https://docs.google.com/presentation/d/16pNbnpPzqwIgU56gWMe_ualDwSH6TP9m/edit?usp=drive_link&ouid=113372474605013599692&rtpof=true&sd=true">
+        Earthquake
+    </a>
+    <br>
+    <hr> <a href="https://drive.google.com/file/d/1VU2B2qYGvX8XiXb01_anPwXtWpJFdDue/view?usp=drive_link">
+        Earthscience Week Invite
+    </a>
+    <br>
+    <hr> <a href="https://drive.google.com/file/d/1Cd5_0R5F2wZjCqSuL9n0Dm5Iw6nBQvCk/view?usp=drive_link">
+        FY_Megascopic Sedimetary Rocks
+    </a>
+    <br>
+    <hr> <a href="https://drive.google.com/file/d/1xY6dqJ7xoNR8tMtfm-NVtOErZKDnQz-k/view?usp=drive_link">
+        Structures in Igneous Rocks
+    </a>
 
-      <!-- Password Field -->
-      <div class="field-group">
-        <label class="field-label">Password</label>
-        <input id="auth-password" class="field-input" type="password" placeholder="••••••••" />
-      </div>
+    <br><br>
+    <br>
+    <hr> <a href="https://drive.google.com/file/d/1_KWFPi2k1G1pnaoANNsf8tHLm4RuoUmV/view?usp=drive_link">
+        Textures in Igneous Rocks
+    </a>
 
-      <!-- Submit Button -->
-      <button class="btn-primary" id="auth-btn" onclick="handleAuth()">Login</button>
+    <br><br>
+    <br>
+    <hr> <a href="https://docs.google.com/presentation/d/15U_3XtuwH4OpSp4KiPWW-SEb8o-Ribgb/edit?usp=drive_link&ouid=113372474605013599692&rtpof=true&sd=true">
+        Geological Time Scale
+    </a>
 
-      <!-- Error / Success Message -->
-      <div class="auth-msg" id="auth-msg"></div>
+    <br><br>
+    <br>
+    <hr> <a href="https://docs.google.com/presentation/d/1oVOJD-6iB1QktXV2LPCBf6QMJpe0qcJg/edit?usp=drive_link&ouid=113372474605013599692&rtpof=true&sd=true">
+        Landforms formed by Glaciers
+    </a>
 
-    </div>
-  </div>
-
-  <!-- ================================
-       MAIN APP (Dashboard)
-  ================================= -->
-  <div id="app-screen">
-
-    <!-- Header -->
-    <header class="header">
-      <div class="header-logo">
-        <div class="logo-icon">🔐</div>
-        <span class="logo-text">DocVault</span>
-      </div>
-      <div class="header-right">
-        <div class="user-pill">
-          <div class="user-avatar" id="user-avatar">U</div>
-          <span id="user-email-label">user</span>
-        </div>
-        <button class="btn-logout" onclick="logout()">Logout</button>
-      </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="main">
-
-      <!-- Yellow Warning Banner (shows if Supabase not configured) -->
-      <div class="config-banner" id="config-banner">
-        ⚠️ <strong>Setup needed:</strong> Apna Supabase URL aur Key
-        <code>js/config.js</code> mein dalo. 
-        <a href="SETUP.md" style="color:var(--yellow);">Setup Guide →</a>
-      </div>
-
-      <!-- Stats Row -->
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-icon" style="background:rgba(124,92,252,0.15);">📄</div>
-          <div>
-            <div class="stat-num" id="stat-count">0</div>
-            <div class="stat-label">Documents</div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="background:rgba(52,211,153,0.15);">💾</div>
-          <div>
-            <div class="stat-num" id="stat-size">0 MB</div>
-            <div class="stat-label">Used Storage</div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="background:rgba(192,132,252,0.15);">🔗</div>
-          <div>
-            <div class="stat-num" id="stat-shared">0</div>
-            <div class="stat-label">Shared Links</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Upload Zone -->
-      <div class="section-title">Upload Document</div>
-      <div class="upload-zone" id="upload-zone"
-           onclick="document.getElementById('file-input').click()"
-           ondragover="handleDragOver(event)"
-           ondrop="handleDrop(event)"
-           ondragleave="handleDragLeave(event)">
-        <span class="upload-icon">☁️</span>
-        <div class="upload-title">Drop files here or click to browse</div>
-        <div class="upload-sub">PDF, DOCX, PPTX, XLSX, Images — max 50MB</div>
-        <button class="btn-upload-choose"
-                onclick="event.stopPropagation(); document.getElementById('file-input').click()">
-          Choose Files
-        </button>
-      </div>
-
-      <!-- Hidden File Input -->
-      <input type="file" id="file-input" multiple
-             accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.png,.jpg,.jpeg,.txt,.zip"
-             onchange="handleFileSelect(event)" />
-
-      <!-- Upload Progress Bar -->
-      <div class="upload-progress" id="upload-progress">
-        <div class="progress-info">
-          <span id="progress-name">Uploading...</span>
-          <span id="progress-pct">0%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill" id="progress-bar"></div>
-        </div>
-      </div>
-
-      <!-- Search + Sort Toolbar -->
-      <div class="section-title">Your Documents</div>
-      <div class="toolbar">
-        <div class="search-box">
-          <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search files..." oninput="filterFiles(this.value)" />
-        </div>
-        <select class="sort-select" onchange="sortFiles(this.value)">
-          <option value="date-desc">Newest First</option>
-          <option value="date-asc">Oldest First</option>
-          <option value="name-asc">Name A–Z</option>
-          <option value="size-desc">Largest First</option>
-        </select>
-      </div>
-
-      <!-- File List (JS se fill hoga) -->
-      <div class="file-list" id="file-list">
-        <div class="empty-state">
-          <span class="empty-icon">📭</span>
-          <div class="empty-title">No documents yet</div>
-          <div>Upload your first file above</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ================================
-       SHARE MODAL (Popup)
-  ================================= -->
-  <div class="modal-overlay" id="share-modal">
-    <div class="modal">
-      <div class="modal-title">🔗 Share Document</div>
-      <div class="modal-sub">Anyone with this link can view and download the file</div>
-      <div class="share-link-box" id="share-link-text">Generating link...</div>
-      <div class="modal-actions">
-        <button class="btn-secondary" onclick="closeShareModal()">Cancel</button>
-        <button class="btn-copy" onclick="copyShareLink()">📋 Copy Link</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast Notification Container -->
-  <div class="toast-container" id="toast-container"></div>
-
-  <!-- Our JS Files (order matters!) -->
-  <script src="js/config.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/upload.js"></script>
-  <script src="js/files.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/app.js"></script>
 
 </body>
+
 </html>

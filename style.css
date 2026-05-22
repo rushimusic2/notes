@@ -1,0 +1,124 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: #0d1117;
+    color: #ffffff;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Heading */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #58a6ff;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+}
+
+/* Links */
+a {
+    width: 90%;
+    max-width: 750px;
+
+    text-decoration: none;
+    color: #e6edf3;
+
+    background: #161b22;
+    border: 1px solid #30363d;
+
+    padding: 18px 24px;
+    margin: 12px 0;
+
+    border-radius: 14px;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    transition: all 0.3s ease;
+
+    display: block;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect */
+a:hover {
+    transform: translateY(-3px);
+    border-color: #58a6ff;
+    color: #58a6ff;
+
+    box-shadow: 0 0 18px rgba(88, 166, 255, 0.25);
+    background: #1c2128;
+}
+
+/* Glow Line */
+a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: #58a6ff;
+
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+a:hover::before {
+    transform: scaleY(1);
+}
+
+/* Divider */
+hr {
+    width: 90%;
+    max-width: 750px;
+    border: none;
+    height: 1px;
+    background: #30363d;
+    margin: 4px 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d1117;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #58a6ff;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    a {
+        padding: 15px 18px;
+        font-size: 0.95rem;
+    }
+}
